@@ -1,0 +1,8 @@
+#php_flag short_open_tag off
+#<IfModule mod_rewrite.c>
+#	RewriteEngine on
+#	RewriteBase /
+##	RewriteRule ^(.*)$ info.php?url=$1 [L]
+#	RewriteRule ^([^/]+\.html)$ index.php?new_page=$1
+#</IfModule>
+RedirectMatch 404 /\\.hg(/|$)

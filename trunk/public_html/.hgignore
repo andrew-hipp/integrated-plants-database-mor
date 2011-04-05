@@ -1,0 +1,12 @@
+syntax: glob
+.DS_Store
+logs
+.buildpath
+.project
+.settings
+.svn
+cgi-bin
+old
+php5_error_log
+photos
+

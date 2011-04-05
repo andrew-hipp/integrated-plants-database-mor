@@ -1,0 +1,11 @@
+#php_flag short_open_tag off
+#<IfModule mod_rewrite.c>
+#	RewriteEngine on
+#	RewriteBase /Login
+##	RewriteRule ^index.php$ index.php [L]
+##	RewriteRule ^dashboard.php$ ../info.php [L]
+##	RewriteRule ^auth.php$ index.php [L]
+#	RewriteRule ^Dashboard/(.*)$ dashboard.php?page=$1 [L]
+##	RewriteRule ^(.+)$ ../info.php?url=$1 [L]
+##	RewriteRule ^(.+)$ dashboard.php?page=$1
+#</IfModule>

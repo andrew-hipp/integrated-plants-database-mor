@@ -1,0 +1,83 @@
+
+/* forms */
+form.adv_search { 
+	display: inline;
+	margin:0;
+	padding:0;
+}
+input.column, textarea.column, select.column {width:49%!important;}
+
+
+fieldset.adv_search { 
+	border:1px solid #000;
+ 	position: relative;
+    margin-top:20px;
+    padding-top:14px;
+	background-color:#fff;
+ }
+
+fieldset.adv_search_wrapper {
+	border:0px solid #fff;
+ 	position: relative;
+    margin-top:0px;
+    padding-top:0px;
+	/*background-color:#fff;*/
+ }
+
+legend.adv_search {
+  position: absolute;
+  top: -2.5em;
+  left: 0.5em;
+  padding: 0.2em 0.7em;
+  border:1px solid #000;
+  color:#000;
+  background-color:#fff;
+  font-size:11px;
+  line-height:normal;
+}
+
+legend.adv_search span { display: block; width: 160px; }
+  
+fieldset .formtable { 
+	margin-bottom:.35em;
+ }  
+input.radio {
+	margin:0 0 0 2px;
+	vertical-align:middle;
+}
+
+fieldset .select { 
+	font-size: 9px;
+	border: 1px solid #000;
+	width:181px;
+}
+fieldset .input { 
+	font-size: 9px;
+	padding:1px 1px 1px 3px;
+	border: 1px solid #000;
+	width:175px;
+}
+fieldset .input_lrg { 
+	font-size: 9px;
+	padding:1px 1px 1px 3px;
+	border: 1px solid #000;
+	width:254px;
+}	
+fieldset .input_med { 
+	font-size: 9px;
+	padding:1px 1px 1px 3px;
+	border: 1px solid #000;
+	width:105px;
+}
+fieldset .input_med2 { 
+	font-size: 9px;
+	padding:1px 1px 1px 3px;
+	border: 1px solid #000;
+	width:146px;
+}			
+fieldset .input_small { 
+	font-size: 9px;
+	padding:1px 1px 1px 3px;
+	border: 1px solid #000;
+	width:40px;
+}	
