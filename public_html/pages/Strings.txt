@@ -1,0 +1,32 @@
+# This file contains strings that will be used in place of existing strings.
+# Any line starting with a hash symbol ('#') like this one will be treated as a comment.
+# Blank lines are ignored.
+# The left-hand-side of the equals sign is the string to replace, the right-hand-side
+# of the equals sign is the string to use in place of the left-hand-side string,
+# e.g. if the line contains "normal string" = "new string to view", locations that would
+# normally display the string "normal string" (without the quotes) will display as
+# "new string to view" (without the quotes).
+#
+# Note: white space at the beginning and end of strings will be ignored unless the string is
+# enclosed in quotes.
+#
+# Below is the list of strings that can be replaced.
+#	searchMOR
+#	The plants database of The Morton Arboretum
+#	Show Quick Search help
+#	Start Quick Search
+#
+# Examples:
+#searchMOR =    Search Morton Arboretum
+#searchMOR = "   Search Morton Arboretum"
+
+The plants database of The Morton Arboretum = "The plants database of <a href='http://www.mortonarb.org' target='external'><font color="black" decoration="none"><strong>The Morton Arboretum</strong></font></a>"
+searchMOR = searchMOR
+"SearchTypeHelp" = "Collection Info will allow you to search herbarium, living collections, or both types of data.You may limit your search to a single living plant collection or to a single accession number. You may use asterisk as a wildcard at the beginning or end of the accession number."
+"TaxonomicNameHelp" = "Taxonomic Name will allow you to search any of the listed parts of a plant name. Note that Plant Name Keyword will search anywhere in the scientific, common or trademark names."
+"SourceCollectorHelp" = "Source/Collector will allow you to search any of the listed parts of a collector name, source institution name, source expedition name or date of collection. You can also search for herbarium specimens that show buds, flowers, fruits and/or vegetation."
+"HabitatHelp" =  "Habitat will allow you to search for specimens that have any or all of the entered keywords as part of the habitat data."
+"GeopoliticalHelp" =  "Geopolitical Area will allow you to search Country, State, County and Township data and their foreign equivalents. Note: the 1st Subcountry field searches the equivalent of a US state name, the 2nd Subcountry searches the equivalent of a US County name."
+"GeopoliticalCoordHelp" =  "Geopolitical Coordinates will allow you to search for specimens by latitude and/or longitude which are searchable as decimal degrees; e.g. 41.990123. Note that North latitude and East longitudes are positive numbers, South latitude and West longitude are negative numbers; e.g. The Morton Arboretum Visitor Center is at 41.814370, -88.070965."
+"SiteLocalityHelp" =  "Site/Locality will allow you to search for specimens that have any or all of the entered keywords as part of the collection site data."
+"USDAZoneHelp" =  "USDA Zone will allow you to search for plants with the entered USDA zones as maximums or minimums."
