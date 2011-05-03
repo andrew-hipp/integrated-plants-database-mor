@@ -129,18 +129,18 @@ if ((!isset($_REQUEST['sciname']) && isset($_REQUEST['id']) && ($_REQUEST['id'] 
 			while ($resultIdx < count($results)) {
 				$resultData =& $results[$resultIdx];
 				$resultIdx++;
-				if ($stmt2 = $dbLink->prepare('SELECT plant_id, collection_preposition, collection_name, grid_loc, coord_loc, annotation, subarea1, subarea2, subarea3 FROM lc_plants WHERE accession_no = ? ORDER BY collection_preposition, collection_name, subarea1')) {
+				if ($stmt2 = $dbLink->prepare('SELECT plant_id, collection_preposition, collection_name, grid_loc, coord_loc, annotation, subarea1, subarea2, subarea3, no_grid FROM lc_plants WHERE accession_no = ? ORDER BY collection_preposition, collection_name, subarea1')) {
 					$stmt2->bind_param('s', $resultData['lc_accession_no']);
 					
 					$stmt2->execute();
 					
-					$stmt2->bind_result($plantId, $collPrep, $collName, $gridLoc, $coordLoc, $annotation, $subarea1, $subarea2, $subarea3);
+					$stmt2->bind_result($plantId, $collPrep, $collName, $gridLoc, $coordLoc, $annotation, $subarea1, $subarea2, $subarea3, $noGrid);
 					$dataIdx = 0;
 					while ($stmt2->fetch()) {
 						if (($dataIdx > 0)
 							&& ($resultData['otherItems'][$dataIdx - 1]['preposition'] == $collPrep)
 							&& ($resultData['otherItems'][$dataIdx - 1]['location'] == $collName)) {
-							$resultData['otherItems'][$dataIdx - 1]['count']++;
+							$resultData['otherItems'][$dataIdx - 1]['count'] = $resultData['otherItems'][$dataIdx - 1]['count'] + $noGrid;
 							$resultData['otherItems'][$dataIdx - 1]['grid'] .= '; <a class="redlink" href="'
 									. $map_url . '&layer=plants&layer=photos&layer=highlight&plantid=' . $plantId . '&mode=browse">' . $gridLoc . '/';
 							if ($annotation == 'T') {
@@ -152,7 +152,7 @@ if ((!isset($_REQUEST['sciname']) && isset($_REQUEST['id']) && ($_REQUEST['id'] 
 						} else {
 							$resultData['otherItems'][$dataIdx]['preposition'] = $collPrep;
 							$resultData['otherItems'][$dataIdx]['location'] = $collName;
-							$resultData['otherItems'][$dataIdx]['count'] = 1;
+							$resultData['otherItems'][$dataIdx]['count'] = $noGrid;
 							$resultData['otherItems'][$dataIdx]['grid'] = '<a class="redlink" href="'
 									. $map_url . '&layer=plants&layer=photos&layer=highlight&plantid=' . $plantId . '&mode=browse">' . $gridLoc . '/';
 							if ($annotation == 'T') {
