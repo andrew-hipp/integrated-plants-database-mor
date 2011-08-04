@@ -46,7 +46,7 @@ if (mysqli_connect_error() == 0) {
 			if ($stmt->fetch()) {
 				$stmt->close();
 				
-				if ($stmt=$dbLink->prepare('SELECT DISTINCT image_thumb FROM lc_images WHERE sciname_id = ?')) {
+				if ($stmt=$dbLink->prepare('SELECT DISTINCT image_thumb FROM lc_images WHERE sciname_id = ? ORDER BY image_thumb')) {
 					$sciname_id = substr($sciname_id, 0, 14);
 					$stmt->bind_param('s', $sciname_id);
 					
@@ -91,7 +91,7 @@ if (mysqli_connect_error() == 0) {
 			if ($stmt->fetch()) {
 				$stmt->close();
 				
-				if ($stmt=$dbLink->prepare('SELECT DISTINCT image_thumb FROM lc_images WHERE sciname_id = ?')) {
+				if ($stmt=$dbLink->prepare('SELECT DISTINCT image_thumb FROM lc_images WHERE sciname_id = ? ORDER BY image_thumb')) {
 					$sciname_id = substr($sciname_id, 0, 14);
 					$stmt->bind_param('s', $sciname_id);
 					
