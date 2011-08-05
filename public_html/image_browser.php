@@ -3,6 +3,7 @@
 //		id=lc_accession
 // or
 //		sciname=urlencode(scientific_name_id)
+// added ORDER BY to image display-EAH-2011-08-03
 $app_root = realpath('.');
 require_once $app_root . '/modules/page_intro_common.php';
 // parameters:
