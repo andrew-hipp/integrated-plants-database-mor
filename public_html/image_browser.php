@@ -47,8 +47,10 @@ if (mysqli_connect_error() == 0) {
 			if ($stmt->fetch()) {
 				$stmt->close();
 				
-				if ($stmt=$dbLink->prepare('SELECT DISTINCT image_thumb FROM lc_images WHERE sciname_id = ? ORDER BY image_thumb')) {
-					$sciname_id = substr($sciname_id, 0, 14);
+				if ($stmt=$dbLink->prepare('SELECT DISTINCT image_thumb FROM lc_images WHERE image_large LIKE ? ORDER BY image_thumb')) {
+					$sciname_id_no_author = explode('*', $sciname_id);
+					array_pop($sciname_id_no_author); array_pop($sciname_id_no_author);	// Author and Cultivar IDs are not used in image filenames
+					$sciname_id = '%/' . preg_replace('/\*/', '-', implode('-', $sciname_id_no_author)) . '--_%';
 					$stmt->bind_param('s', $sciname_id);
 					
 					$stmt->execute();
@@ -92,8 +94,10 @@ if (mysqli_connect_error() == 0) {
 			if ($stmt->fetch()) {
 				$stmt->close();
 				
-				if ($stmt=$dbLink->prepare('SELECT DISTINCT image_thumb FROM lc_images WHERE sciname_id = ? ORDER BY image_thumb')) {
-					$sciname_id = substr($sciname_id, 0, 14);
+				if ($stmt=$dbLink->prepare('SELECT DISTINCT image_thumb FROM lc_images WHERE image_large LIKE ? ORDER BY image_thumb')) {
+					$sciname_id_no_author = explode('*', $sciname_id);
+					array_pop($sciname_id_no_author); array_pop($sciname_id_no_author);	// Author and Cultivar IDs are not used in image filenames
+					$sciname_id = '%/' . preg_replace('/\*/', '-', implode('-', $sciname_id_no_author)) . '--_%';
 					$stmt->bind_param('s', $sciname_id);
 					
 					$stmt->execute();

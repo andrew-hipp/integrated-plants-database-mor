@@ -110,6 +110,20 @@ if (isNull($image_url) || ($image_url == '')) {
 
 require_once 'modules/page_tab_Intro_common.php';
 require_once 'modules/collections_common.php';
+
+function make_caption_from_filename($filename) {
+	preg_match('/\/[\d-_]+(.*)\.jpg/i', $filename, $t);
+	$f = preg_split('/_/', $t[1]);
+	$c = array(
+		'name'		=> preg_replace('/-/', ' ', $f[0]),
+		'attrs'		=> preg_replace('/-/', ', ', $f[1]),
+		'photographer'	=> $f[2],
+		'date'		=> preg_replace('/no-date/', 'Unknown Date', $f[3])
+	);
+	
+	return "<b><i>" . $c['name'] . "</i>, " . $c['attrs'] . ". Photographed by " . $c['photographer'] . ", " . $c['date'] . "</i></b>";
+}
+
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
       "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -142,6 +156,10 @@ require_once $app_root . '/modules/sciname_common.php';
 <center>
 <img src="<?php echo $image_url; ?>" />
 </center>
+</div>
+
+<div id="caption" class="caption">
+<b><?php echo make_caption_from_filename($image_url); ?></b>
 </div>
 
 </div>
