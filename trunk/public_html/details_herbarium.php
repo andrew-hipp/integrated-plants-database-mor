@@ -10,7 +10,7 @@ if (isset($_REQUEST['id']) && ($_REQUEST['id'] != '')) {
 	if (mysqli_connect_error() == 0) {
 		if ($stmt = $dbLink->prepare('SELECT hrb_accession.id, hrb_accession.herb_nbr, sciname.scientific_name, sciname.common_names,'
 				. ' hrb_accession.country, hrb_accession.subctry1, hrb_accession.subctry2, hrb_accession.desig1,'
-				. ' hrb_accession.site, hrb_accession.lat, hrb_accession.lat_dir, hrb_accession.long,'
+				. ' hrb_accession.habitat, hrb_accession.site, hrb_accession.lat, hrb_accession.lat_dir, hrb_accession.long,'
 				. ' hrb_accession.long_dir, hrb_accession.elev_units, hrb_accession.associates,'
 				. ' hrb_accession.collector_primary, hrb_accession.collector_primary_ln, hrb_accession.collector_addl, hrb_accession.project,'
 				. ' hrb_accession.coll_date, hrb_accession.coll_date_acc, hrb_accession.image_thumb, hrb_accession.image_large,'
@@ -32,7 +32,7 @@ if (isset($_REQUEST['id']) && ($_REQUEST['id'] != '')) {
 			$stmt->bind_result($resultData['herb_id'], $resultData['herb_herb_nbr'], $sciname['scientific_name'],
 					$sciname['common_names'],
 					$resultData['herb_country'], $resultData['herb_subctry1'], $resultData['herb_subctry2'], $resultData['desig1'],
-					$resultData['herb_site'], $resultData['herb_lat'], $resultData['herb_lat_dir'], $resultData['herb_long'],
+					$resultData['herb_habitat'], $resultData['herb_site'], $resultData['herb_lat'], $resultData['herb_lat_dir'], $resultData['herb_long'],
 					$resultData['herb_long_dir'], $resultData['herb_elev_units'], $resultData['herb_associates'],
 					$resultData['herb_collector_primary'], $resultData['herb_collector_primary_ln'], $resultData['herb_collector_addl'], $resultData['herb_project'],
 					$resultData['herb_coll_date'], $resultData['herb_coll_date_acc'], $resultData['image_thumb'], $resultData['image_large'],
@@ -277,6 +277,7 @@ $fields[] = array('desc'=>'Survey', 'idx'=>'survey');
 $fields[] = array('desc'=>'Coordinates', 'idx'=>'coordinates');
 $fields[] = array('desc'=>'Elevation', 'idx'=>'elevation');
 $fields[] = array('desc'=>'Original&nbsp;Name', 'idx'=>'originalName');
+$fields[] = array('desc'=>'Habitat', 'idx'=>'herb_habitat');
 $fields[] = array('desc'=>'Associates', 'idx'=>'herb_associates');
 $fields[] = array('desc'=>'Comments', 'idx'=>'comments');
 $fields[] = array('desc'=>'Attributes', 'idx'=>'attributes');

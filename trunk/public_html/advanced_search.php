@@ -2259,16 +2259,18 @@ if ($numUsedFields > 0) {
 				}
 			}
 
-			if ($stmt = $link->prepare('SELECT image_thumb, image_large FROM lc_images WHERE sciname_id = ?')) {
-				$sciname_first_part = '';
-				$stmt->bind_param('s', $sciname_first_part);
+			if ($stmt = $link->prepare('SELECT image_thumb, image_large FROM lc_images WHERE image_large LIKE ?')) {
+				$sciname_id = '';
+				$stmt->bind_param('s', $sciname_id);
 				
 				$image_thumb = '';
 				$image_large = '';
 				$stmt->bind_result($image_thumb, $image_large);
 				
 				foreach (array_keys($scinames) as $idx) {
-					$sciname_first_part = substr($scinames[$idx]['scientific_name_id'], 0, 14);  
+					$sciname_id_no_author = explode('*', $scinames[$idx]['scientific_name_id']);
+					array_pop($sciname_id_no_author); array_pop($sciname_id_no_author);	// Author and Cultivar IDs are not used in image filenames
+					$sciname_id = '%/' . preg_replace('/\*/', '-', implode('-', $sciname_id_no_author)) . '--_%';
 					$stmt->execute();
 					if ($stmt->fetch()) {
 						$scinames[$idx]['image_thumb'] = $image_thumb;

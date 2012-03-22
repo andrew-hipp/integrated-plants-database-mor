@@ -129,41 +129,60 @@ if ((!isset($_REQUEST['sciname']) && isset($_REQUEST['id']) && ($_REQUEST['id'] 
 			while ($resultIdx < count($results)) {
 				$resultData =& $results[$resultIdx];
 				$resultIdx++;
-				if ($stmt2 = $dbLink->prepare('SELECT plant_id, collection_preposition, collection_name, grid_loc, coord_loc, annotation, subarea1, subarea2, subarea3, no_grid FROM lc_plants WHERE accession_no = ? ORDER BY collection_preposition, collection_name, subarea1')) {
+				if ($stmt2 = $dbLink->prepare('SELECT lc_plants.plant_id, collection_preposition, collection_name, grid_loc, coord_loc, annotation, subarea1, subarea2, subarea3, no_grid, hide_location, lat_long.latitude, lat_long.longitude FROM lc_plants LEFT JOIN lat_long ON lc_plants.plant_id = lat_long.plant_id WHERE accession_no = ? ORDER BY collection_preposition, collection_name, subarea1')) {
 					$stmt2->bind_param('s', $resultData['lc_accession_no']);
 					
 					$stmt2->execute();
 					
-					$stmt2->bind_result($plantId, $collPrep, $collName, $gridLoc, $coordLoc, $annotation, $subarea1, $subarea2, $subarea3, $noGrid);
+					$stmt2->bind_result($plantId, $collPrep, $collName, $gridLoc, $coordLoc, $annotation, $subarea1, $subarea2, $subarea3, $noGrid, $hideLoc, $lat, $long);
+
 					$dataIdx = 0;
 					while ($stmt2->fetch()) {
+						unset($gmapsLink);
+						unset($kmlCheckbox);
+						$filteredSciname = preg_replace(array('/\(/', '/\)/'), array('[', ']'), $scinames[$resultData['sciname_id']]['scientific_name']);
+						if(!isNull($lat) && !isNull($long))
+						{
+							$gmapsLink = '(<a href="http://maps.google.com/maps?q=' . $lat . ',' . $long . urlencode(' (' . $filteredSciname . ', ' . $plantId . ' - ' . $collName . ')') . '&t=h&z=21&output=embed">View on Google Maps</a>)';
+							$kmlCheckbox = '<input type="checkbox" name="plant_id[]" class="cb" value="' . $plantId . '"/>';
+						}
 						if (($dataIdx > 0)
 							&& ($resultData['otherItems'][$dataIdx - 1]['preposition'] == $collPrep)
 							&& ($resultData['otherItems'][$dataIdx - 1]['location'] == $collName)) {
 							$resultData['otherItems'][$dataIdx - 1]['count'] = $resultData['otherItems'][$dataIdx - 1]['count'] + $noGrid;
-							$resultData['otherItems'][$dataIdx - 1]['grid'] .= '; <a class="redlink" href="'
+							$resultData['otherItems'][$dataIdx - 1]['grid'] .= '<br /> ' . $kmlCheckbox . ' <a class="redlink" href="'
 									. $map_url . '&layer=plants&layer=photos&layer=highlight&plantid=' . $plantId . '&mode=browse">' . $gridLoc . '/';
 							if ($annotation == 'T') {
 								$resultData['otherItems'][$dataIdx - 1]['grid'] .= '<u>' . $coordLoc . '</u>';
 							} else {
 								$resultData['otherItems'][$dataIdx - 1]['grid'] .= $coordLoc;
 							}
-							$resultData['otherItems'][$dataIdx - 1]['grid'] .= '</a>';
+							$resultData['otherItems'][$dataIdx - 1]['grid'] .= '</a> ';
+							$resultData['otherItems'][$dataIdx - 1]['grid'] .= $gmapsLink;
 						} else {
-							$resultData['otherItems'][$dataIdx]['preposition'] = $collPrep;
 							$resultData['otherItems'][$dataIdx]['location'] = $collName;
 							$resultData['otherItems'][$dataIdx]['count'] = $noGrid;
-							$resultData['otherItems'][$dataIdx]['grid'] = '<a class="redlink" href="'
-									. $map_url . '&layer=plants&layer=photos&layer=highlight&plantid=' . $plantId . '&mode=browse">' . $gridLoc . '/';
-							if ($annotation == 'T') {
-								$resultData['otherItems'][$dataIdx]['grid'] .= '<u>' . $coordLoc . '</u>';
-							} else {
-								$resultData['otherItems'][$dataIdx]['grid'] .= $coordLoc;
+							if($hideLoc == 'N')
+							{
+								if(!isNull($lat) && !isNull($long))
+								{
+									$gmapsLink = '(<a href="http://maps.google.com/maps?q=' . $lat . ',' . $long . urlencode(' (' . $filteredSciname . ', ' . $plantId . ' - ' . $collName . ')') . '&t=h&z=21&output=embed">View on Google Maps</a>)';
+									$kmlCheckbox = '<input type="checkbox" name="plant_id[]" class="cb" value="' . $plantId . '"/>';
+								}
+								$resultData['otherItems'][$dataIdx]['preposition'] = $collPrep;
+								$resultData['otherItems'][$dataIdx]['grid'] = $kmlCheckbox . ' <a class="redlink" href="'
+										. $map_url . '&layer=plants&layer=photos&layer=highlight&plantid=' . $plantId . '&mode=browse">' . $gridLoc . '/';
+								if ($annotation == 'T') {
+									$resultData['otherItems'][$dataIdx]['grid'] .= '<u>' . $coordLoc . '</u>';
+								} else {
+									$resultData['otherItems'][$dataIdx]['grid'] .= $coordLoc;
+								}
+								$resultData['otherItems'][$dataIdx]['grid'] .= '</a>';
+								$resultData['otherItems'][$dataIdx]['grid'] .= ' ' . $gmapsLink;
+								$resultData['otherItems'][$dataIdx]['subarea1'] = $subarea1;
+								$resultData['otherItems'][$dataIdx]['subarea2'] = $subarea2;
+								$resultData['otherItems'][$dataIdx]['subarea3'] = $subarea3;
 							}
-							$resultData['otherItems'][$dataIdx]['grid'] .= '</a>';
-							$resultData['otherItems'][$dataIdx]['subarea1'] = $subarea1;
-							$resultData['otherItems'][$dataIdx]['subarea2'] = $subarea2;
-							$resultData['otherItems'][$dataIdx]['subarea3'] = $subarea3;
 							$dataIdx++;
 						}
 					}
@@ -189,7 +208,7 @@ if ((!isset($_REQUEST['sciname']) && isset($_REQUEST['id']) && ($_REQUEST['id'] 
 						$resultData['relatedHerbarium'][$dataIdx]['collector'] = $coll;
 						$resultData['relatedHerbarium'][$dataIdx]['exp_nbr'] = $coll_no;
 						$coll_date_parts = explode('-', sprintf('%s', $coll_date));
-						$resultData['relatedHerbarium'][$dataIdx]['exp_date'] = date('d M Y', mktime(0, 0, 0, $coll_date_parts[1], $coll_date_parts[2], $coll_date_parts[0]));;
+						$resultData['relatedHerbarium'][$dataIdx]['exp_date'] = date('d M Y', mktime(0, 0, 0, $coll_date_parts[1], $coll_date_parts[2], $coll_date_parts[0]));
 						$dataIdx++;
 					}
 					
@@ -243,6 +262,23 @@ if (!isset($_REQUEST['download_file'])) {
   <title>Morton Arboretum</title>
   <link rel="stylesheet" type="text/css" href="libraries/main.php" />
   <script type="text/javascript" src="libraries/main.js"></script>
+  <script type="text/javascript" src="libraries/jquery.min.js"></script>
+  <script type="text/javascript">
+  function toggleChecked(status) {
+	$(".cb").each( function() {
+		$(this).attr("checked", status);
+	})
+  }
+  </script>
+  <style type='text/css'>
+  #error
+  {
+  	border: 2px solid red;
+  	padding: 0.5em;
+  	background-color: #FF9999;
+  	text-align: center;
+  }
+  </style>
 </head>
 <body>
 	<form name="gotoPageForm" action="." method="post">
@@ -255,22 +291,31 @@ require_once 'modules/header_common.php';
 		<div id="content" class="content">
 <?php
 showTabs($pages_info, null, 'results');
-?>			<table border="0" width="80%">
+?>
+<?php
+	if(isset($_GET['notice']) && $_GET['notice'] == 'noplants')
+	{
+?>
+<p id='error'>No plants selected for export.</p>
+<?php	
+	}
+?>
+			<table border="0" width="80%">
 				<tr>
 					<td>
 						<table border="0" width="100%">
 						<tr>
 							<td>
-								<?php
-if (count($results) == 1) {
-?><b>Living collections accession <?php echo $resultData['lc_accession_no']; ?> &mdash; <?php
-}
+<?php
 require_once $app_root . '/modules/sciname_common.php';
 
 sciname_long($results[0], $scinames[$results[0]['sciname_id']]);
 ?>							</td>
 							<td rowSpan="2">
-								<button name="download_file" type="button" onclick="javascript:window.location='<?php echo getRootUrl(); ?>/details_living_coll.php?download_file=&<?php echo $_SERVER['QUERY_STRING']; ?>';">Download file</button>
+								<button name="download_file" type="button" onclick="javascript:window.location='<?php echo getRootUrl(); ?>/details_living_coll.php?download_file=&<?php echo $_SERVER['QUERY_STRING']; ?>';">Download CSV file</button><br />
+								<form name="kml" method="POST" id="frmKML" action="earthkml.php">
+								<input type="submit" name="kml" value="Download checked as KML" /><br />
+								<input type="checkbox" name="checkAll" onclick="toggleChecked(this.checked)" /> Check All
 							</td>
 						</tr>
 						<tr>
@@ -282,6 +327,8 @@ sciname_long($results[0], $scinames[$results[0]['sciname_id']]);
 <?php
 $showAccessNbr = (count($results) > 1);
 $needHR = false;
+
+unset($resultData);
 foreach ($results as $resultData) {
 	$sciname = $scinames[$resultData['sciname_id']];
 ?>				<tr>
@@ -293,6 +340,9 @@ foreach ($results as $resultData) {
 	$needHR = true;
 	if ($showAccessNbr) {
 		echo '<table width="100%" border="0"><tr valign="top"><td width="75px" align="right"><b>' . $resultData['lc_accession_no'] . '</b></td><td width="10px"></td><td align="left">' . "\n";
+	}
+	if (count($results) == 1) {
+		echo "<b>&nbsp;" . $resultData['lc_accession_no'] . "</b> &mdash; ";
 	}
 	echo $resultData['lc_how_received'];
 	if (!isNull($resultData['lc_no_received']) && ($resultData['lc_no_received'] > 1)) {
@@ -368,7 +418,7 @@ foreach ($results as $resultData) {
 								<td width="10px"> - </td>
 								<td>
 <?php
-			echo $otherItems['preposition'] . ' ' . $otherItems['location'] . ': ' . $otherItems['grid'];
+			echo $otherItems['preposition'] . ' ' . $otherItems['location'] . ': <br />' . $otherItems['grid'];
 ?>								</td>
 							</tr>
 <?php
@@ -384,6 +434,10 @@ foreach ($results as $resultData) {
 					</td>
 				</tr>
 				<tr>
+					<table>
+						<tr>
+							<td width="73px">
+							</td>
 					<td align="left">
 						<b>Associated herbarium specimens</b>
 						<table border="0" width="100%">
@@ -394,7 +448,14 @@ foreach ($results as $resultData) {
 								</td>
 								<td align="right" width="10px">
 <?php
-			echo '									<a href="' . getRootUrl() . '/details_herbarium.php?id=' . $otherHerb['acc_nbr'] . '"><font color="red"><b>' . $otherHerb['acc_nbr'] . '</b></font></a>';
+	if(isNull($otherHerb['acc_nbr']) || $otherHerb['acc_nbr'] == 'NEW')
+	{
+		echo '									<font color="red">&nbsp;</font></a>';
+	}
+	else
+	{
+		echo '									<a href="' . getRootUrl() . '/details_herbarium.php?id=' . $otherHerb['acc_nbr'] . '"><font color="red"><b>' . $otherHerb['acc_nbr'] . '</b></font></a>';
+	}
 ?>								</td>
 								<td width="1px">&mdash;</td>
 								<td>
@@ -413,11 +474,14 @@ foreach ($results as $resultData) {
 		}
 ?>						</table>
 					</td>
+						</tr>
+					</table>
 				</tr>
 <?php
 	}
 }
 ?>		</div>
+		</form>
 	</div>
 </body>
 </html>
