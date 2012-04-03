@@ -143,7 +143,7 @@ if ((!isset($_REQUEST['sciname']) && isset($_REQUEST['id']) && ($_REQUEST['id'] 
 						$filteredSciname = preg_replace(array('/\(/', '/\)/'), array('[', ']'), $scinames[$resultData['sciname_id']]['scientific_name']);
 						if(!isNull($lat) && !isNull($long))
 						{
-							$gmapsLink = '(<a href="http://maps.google.com/maps?q=' . $lat . ',' . $long . urlencode(' (' . $filteredSciname . ', ' . $plantId . ' - ' . $collName . ')') . '&t=h&z=21&output=embed">View on Google Maps</a>)';
+							$gmapsLink = '(<a href="http://maps.google.com/maps?q=' . $lat . ',' . $long . urlencode(' (' . $filteredSciname . ', ' . $plantId . ' - ' . $collName . ' . $gridLoc . ')') . '&t=h&z=21&output=embed">View on Google Maps</a>)';
 							$kmlCheckbox = '<input type="checkbox" name="plant_id[]" class="cb" value="' . $plantId . '"/>';
 						}
 						if (($dataIdx > 0)
@@ -166,7 +166,7 @@ if ((!isset($_REQUEST['sciname']) && isset($_REQUEST['id']) && ($_REQUEST['id'] 
 							{
 								if(!isNull($lat) && !isNull($long))
 								{
-									$gmapsLink = '(<a href="http://maps.google.com/maps?q=' . $lat . ',' . $long . urlencode(' (' . $filteredSciname . ', ' . $plantId . ' - ' . $collName . ')') . '&t=h&z=21&output=embed">View on Google Maps</a>)';
+									$gmapsLink = '(<a href="http://maps.google.com/maps?q=' . $lat . ',' . $long . urlencode(' (' . $filteredSciname . ', ' . $plantId . ' - ' . $collName . ' . $gridLoc. ')') . '&t=h&z=21&output=embed">View on Google Maps</a>)';
 									$kmlCheckbox = '<input type="checkbox" name="plant_id[]" class="cb" value="' . $plantId . '"/>';
 								}
 								$resultData['otherItems'][$dataIdx]['preposition'] = $collPrep;
