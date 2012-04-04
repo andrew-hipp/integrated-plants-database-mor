@@ -50,6 +50,7 @@ if (mysqli_connect_error() == 0) {
 
 			$stmt->bind_result($scinameId);
 			$stmt->fetch();
+
 		}
 		$queryStr = null;
 		$stmt = null;
@@ -68,6 +69,7 @@ if (mysqli_connect_error() == 0) {
 			$places[$p]['id'] = $p;
 			$places[$p]['lat'] = $lat;
 			$places[$p]['long'] = $long;
+			$places[$p]['sciName'] = $sciname . ", " . $collName;
 		}
 	}
 }
@@ -80,7 +82,7 @@ $plantFolder = new KMLFolder('', 'Plants');
 
 	foreach($places as $i)
 	{
-		$plant = new KMLPlaceMark($i['id'], $i['id'], $i['collName'], true);
+		$plant = new KMLPlaceMark($i['id'], $i['id'],$i['sciName'], true);//$i['sciName']
 		$plant->setGeometry(new KMLPoint($i['long'], $i['lat'], 0, true, 'relativeToGround'));
 		$plantFolder->addFeature($plant);
 	}
