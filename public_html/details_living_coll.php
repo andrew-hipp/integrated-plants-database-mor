@@ -144,6 +144,7 @@ if ((!isset($_REQUEST['sciname']) && isset($_REQUEST['id']) && ($_REQUEST['id'] 
 						if(!isNull($lat) && !isNull($long))
 						{
 							$gmapsLink = '(<a href="http://maps.google.com/maps?q=' . $lat . ',' . $long . urlencode(' (' . $filteredSciname . ', ' . $plantId . ' - ' . $collName . ' , ' . $gridLoc . '/' . $coordLoc . ')') . '&t=h&z=21&output=embed">View on Google Maps</a>)';
+							$gmapsgridLink = '(<a href="http://www.plantconservation.us/tilemap.html?code=&' . $plantId . '&' . $lat .'&' . $long . '">View on Google Maps with grid overlay</a>)';
 							$kmlCheckbox = '<input type="checkbox" name="plant_id[]" class="cb" value="' . $plantId . '"/>';
 						}
 						if (($dataIdx > 0)
@@ -159,6 +160,7 @@ if ((!isset($_REQUEST['sciname']) && isset($_REQUEST['id']) && ($_REQUEST['id'] 
 							}
 							$resultData['otherItems'][$dataIdx - 1]['grid'] .= '</a> ';
 							$resultData['otherItems'][$dataIdx - 1]['grid'] .= $gmapsLink;
+							$resultData['otherItems'][$dataIdx - 1]['grid'] .= ' ' . $gmapsgridLink;
 						} else {
 							$resultData['otherItems'][$dataIdx]['location'] = $collName;
 							$resultData['otherItems'][$dataIdx]['count'] = $noGrid;
@@ -167,6 +169,7 @@ if ((!isset($_REQUEST['sciname']) && isset($_REQUEST['id']) && ($_REQUEST['id'] 
 								if(!isNull($lat) && !isNull($long))
 								{
 									$gmapsLink = '(<a href="http://maps.google.com/maps?q=' . $lat . ',' . $long . urlencode(' (' . $filteredSciname . ', ' . $plantId . ' - ' . $collName . ' , ' . $gridLoc . '/' . $coordLoc . ' )') . '&t=h&z=21&output=embed">View on Google Maps</a>)';
+									$gmapsgridLink = '(<a href="http://www.plantconservation.us/tilemap.html?code=&' . $plantId . '&' . $lat .'&' . $long . '">View on Google Maps with grid overlay</a>)';
 									$kmlCheckbox = '<input type="checkbox" name="plant_id[]" class="cb" value="' . $plantId . '"/>';
 								}
 								$resultData['otherItems'][$dataIdx]['preposition'] = $collPrep;
@@ -179,6 +182,7 @@ if ((!isset($_REQUEST['sciname']) && isset($_REQUEST['id']) && ($_REQUEST['id'] 
 								}
 								$resultData['otherItems'][$dataIdx]['grid'] .= '</a>';
 								$resultData['otherItems'][$dataIdx]['grid'] .= ' ' . $gmapsLink;
+								$resultData['otherItems'][$dataIdx]['grid'] .= ' ' . $gmapsgridLink;
 								$resultData['otherItems'][$dataIdx]['subarea1'] = $subarea1;
 								$resultData['otherItems'][$dataIdx]['subarea2'] = $subarea2;
 								$resultData['otherItems'][$dataIdx]['subarea3'] = $subarea3;
