@@ -26,17 +26,20 @@ if (mysqli_connect_error() == 0) {
 		$sciname = null;
 		$lat = null;
 		$long = null;
+		$gridLoc = null;
 
-		$queryStr = "SELECT accession_no, collection_name FROM lc_plants WHERE plant_id = ?";
+		$queryStr = "SELECT accession_no, collection_name, grid_loc, coord_loc FROM lc_plants WHERE plant_id = ?";
 		if($stmt = $dbLink->prepare($queryStr))
 		{
 			$stmt->bind_param('s', $p);
 			$stmt->execute();
 
-			$stmt->bind_result($accessionNo, $collName);
+			$stmt->bind_result($accessionNo, $collName, $gridLoc, $coordLoc);
 			$stmt->fetch();
 
 			$places[$p]['collName'] = $collName;
+			$places[$p]['gridLoc'] = $gridLoc;
+			$places[$p]['coordLoc'] = $coordLoc;
 		}
 		$queryStr = null;
 		$stmt = null;
@@ -69,7 +72,7 @@ if (mysqli_connect_error() == 0) {
 			$places[$p]['id'] = $p;
 			$places[$p]['lat'] = $lat;
 			$places[$p]['long'] = $long;
-			$places[$p]['sciName'] = $sciname . ", " . $collName;
+			$places[$p]['sciName'] = $sciname . ", " . $collName . ", " . $gridLoc . "/" . $coordLoc; 
 		}
 	}
 }
@@ -82,7 +85,7 @@ $plantFolder = new KMLFolder('', 'Plants');
 
 	foreach($places as $i)
 	{
-		$plant = new KMLPlaceMark($i['id'], $i['id'],$i['sciName'], true);//$i['sciName']
+		$plant = new KMLPlaceMark($i['id'], $i['id'],$i['sciName'], true);
 		$plant->setGeometry(new KMLPoint($i['long'], $i['lat'], 0, true, 'relativeToGround'));
 		$plantFolder->addFeature($plant);
 	}
