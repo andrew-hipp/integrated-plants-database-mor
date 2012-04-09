@@ -151,8 +151,12 @@ if ((!isset($_REQUEST['sciname']) && isset($_REQUEST['id']) && ($_REQUEST['id'] 
 							&& ($resultData['otherItems'][$dataIdx - 1]['preposition'] == $collPrep)
 							&& ($resultData['otherItems'][$dataIdx - 1]['location'] == $collName)) {
 							$resultData['otherItems'][$dataIdx - 1]['count'] = $resultData['otherItems'][$dataIdx - 1]['count'] + $noGrid;
-							$resultData['otherItems'][$dataIdx - 1]['grid'] .= '<br /> ' . $kmlCheckbox . ' <a class="redlink" href="'
-									. $map_url . '&layer=plants&layer=photos&layer=highlight&plantid=' . $plantId . '&mode=browse">' . $gridLoc . '/';
+							//$resultData['otherItems'][$dataIdx - 1]['grid'] .= '<br /> ' . $kmlCheckbox . ' <a class="redlink" href="'
+							//		. $map_url . '&layer=plants&layer=photos&layer=highlight&plantid=' . $plantId . '&mode=browse">' . $gridLoc . '/';
+
+							$resultData['otherItems'][$dataIdx - 1]['grid'] .= '<br /> ' . $kmlCheckbox . ' <a href="http://
+							www.plantconservation.us/zoomc.phtml?code=' . $plantId . '&minx=408887.656907&maxx=414151.074079&miny=4629090.818457&maxy=4631209.825644">' . $gridLoc . '/';
+
 							if ($annotation == 'T') {
 								$resultData['otherItems'][$dataIdx - 1]['grid'] .= '<u>' . $coordLoc . '</u>';
 							} else {
@@ -173,8 +177,11 @@ if ((!isset($_REQUEST['sciname']) && isset($_REQUEST['id']) && ($_REQUEST['id'] 
 									$kmlCheckbox = '<input type="checkbox" name="plant_id[]" class="cb" value="' . $plantId . '"/>';
 								}
 								$resultData['otherItems'][$dataIdx]['preposition'] = $collPrep;
-								$resultData['otherItems'][$dataIdx]['grid'] = $kmlCheckbox . ' <a class="redlink" href="'
-										. $map_url . '&layer=plants&layer=photos&layer=highlight&plantid=' . $plantId . '&mode=browse">' . $gridLoc . '/';
+								//$resultData['otherItems'][$dataIdx]['grid'] = $kmlCheckbox . ' <a class="redlink" href="'
+								//				. $map_url . '&layer=plants&layer=photos&layer=highlight&plantid=' . $plantId . '&mode=browse">' . $gridLoc . '/';
+								$resultData['otherItems'][$dataIdx]['grid'] = $kmlCheckbox . ' <a href="http://
+								www.plantconservation.us/zoomc.phtml?code=' . $plantId . '&minx=408887.656907&maxx=414151.074079&miny=4629090.818457&maxy=4631209.825644">' . $gridLoc. '/';
+
 								if ($annotation == 'T') {
 									$resultData['otherItems'][$dataIdx]['grid'] .= '<u>' . $coordLoc . '</u>';
 								} else {
