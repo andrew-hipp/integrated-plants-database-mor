@@ -526,7 +526,8 @@ function dump_results($results, $scinames) {
 				$plantArray = array();
 				
 				while ($plantStmt->fetch()) {
-					$plantArray[] = '<a href="' . $map_url . '&layer=plants&layer=photos&layer=highlight&plantid=' . $lc_plant_id . '&mode=browse" target="_blank">' . $lc_plant_id . '</a>';
+				//	$plantArray[] = '<a href="' . $map_url . '&layer=plants&layer=photos&layer=highlight&plantid=' . $lc_plant_id . '&mode=browse" target="_blank">' . $lc_plant_id . '</a>';
+					$plantArray[] = '<a href="http://www.plantconservation.us/zoomc.phtml?code=' . $lc_plant_id . '&minx=408887.656907&maxx=414151.074079&miny=4629090.818457&maxy=4631209.825644">' . $lc_plant_id. '</a>';
 				}
 				
 				$plantStmt->close();
