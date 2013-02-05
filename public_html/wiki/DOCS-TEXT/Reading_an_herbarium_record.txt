@@ -1,0 +1,67 @@
+==Example of an Herbarium Record==
+ <tt>'''Herbarium accession 162545 — ''Acer platanoides'' L. ACERACEAE — MAPLE FAMILY'''<br>
+ '''Common Names: norway maple '''<br>
+ '''USDA Hardiness Zone: 3.'''<br>
+ --------------------------------------------------------------------------------
+ '''Country:'''   U.S.A. <br>
+ '''State:'''   Illinois <br>
+ '''County:'''   DuPage <br>
+ '''Locality:'''   Hidden Lake Forest Preserve. Open area just outside woodland.  <br>
+ '''Coordinates:'''   41.8257° N, 88.0431° W <br>
+ '''Original Name:'''  Acer platanoides L. <br>
+ '''Associates:'''   Aster, Crataegus, Dactylis glomerata, Daucus carota, <br>Lonicera maackii,  Quercus rubra, Rhamnus cathartica, <br>Solidago altissima, Toxicodendron radicans, Vitis riparia, grass spp. <br>
+ '''Collected by:'''   Jason Sturner, Jaime Weber <br>
+ '''Project:'''   2006-2007 environmental survey of Morton Arboretum East Woods & Hidden Lake <br> FP, funded by IMLS IMLS 2006-7 ENV. SURV. MORTON E. WOODS <br>
+ '''Coll. #:'''   JS770 <br>
+ '''Coll. date:'''   27 Sep 2007 <br>
+ '''Accession #:'''   162545 </tt>
+
+==Description of fields within an Herbarium Record==
+
+;Header
+: The header contains the herbarium accession number followed by the ''scientific name'' of the plant and the Family in which it resides.  Below this information is the common name of the plant and the hardiness zone for which the plant is recommended, according to the USDA. 
+::<blockquote>In the herbarium record above, the header tells you that you are looking at a specimen of ''Acer platanoides'' L., more commonly known as a Norway maple.  The record refers to an individual herbarium specimen with the herbarium accession number of 162545. ''Acer platanoides'' L. is part of the Aceraceae Family (or Maple Family) and grows well in hardiness Zone 3, which generally is the northern areas of the Midwest. </blockquote>
+;Country
+:This field contains the country in which the collectors collected the herbarium specimen.
+;State
+:This field contains the state in which the collectors collected the herbarium specimen.
+;County
+:This field contains the county in which the collectors collected the herbarium specimen.
+;Locality
+:This field contains specific information about the area in which the specimen was collected.  When the specimen was collected on site at The Morton Arboretum from the living collections, this field will contain a grid number.  One can use the [http://www.plantconservation.us/map.phtml interactive collections map] to find the location of the plant from which the herbarium specimen was collected.  
+::<blockquote>For example, the locality of Herbarium Accession #104975 (''Syringa pekinensis'' Rupr.) is Oleaceae, [P-34/45-35]. This specimen was collected from a plant at The Morton Arboretum in the location of P-34/45-35.  This area contains plants from the Oleaceae Family (Olive Family).</blockquote>
+ 
+;Coordinates
+:This field contains the longitude and latitude coordinates of the plant from which the herbarium specimen was obtained.
+;Original Name
+:Sometimes a scientific name in our collection is determined to be a basionym or synonym to a different accepted name.  In this field, we document if we've previously had this specimen listed under a different name.  Often, a plant or plant seed is received by The Morton Arboretum under a specific name and later, after cultivation and examination, it is determined to be a different species than originally thought.  This information will appear in this field also.
+;Associates
+:This field gives you an idea of what kinds of plants occupied the same habitat as the plant from which the herbarium specimen was made.  This field contains a list of any plants the collector identified as having grown alongside the plant that was collected.  
+;Collected by
+:This field contains a list of the people who collected the specimen for mounting, primary collector listed first and all associate collectors following.
+;Project
+:If the herbarium specimen was collected for a specific project/grant, this field documents the project information.
+;Coll.#
+: A specific collector number is designated at the time of collection to distinguish different specimen.  If duplicate specimens were taken from the same plant at time of collection, then they would have the same collector number.  For specimen collected at The Morton Arboretum, the 2 digits after the "v" signify the year in which the specimen was collected.  
+;Coll. date
+:This field contains the date that the herbarium specimen was collected.
+;Accession #
+:The herbarium accession number is the number that is typically stamped in an upper corner of the herbarium sheet.  Every herbarium specimen stored at The Morton Arboretum has a unique number that allows us to keep record of the specimens that enter the herbarium collection.
+;Attributes
+:This field contains any information about the living plant from which the herbarium specimen was obtained. Some information that this field might contain includes the type of specimen, shape and size of plant, condition of the plant at time of collection, texture and color of trunk bark and twigs.  This field may also include the color of flower or fruit on plant at time of collection (description and RHS color chart #) to give you and idea of what these reproductive parts looked like before they were pressed and dehydrated.  Also included in this section is size of the plant, ie. whether the tree/shrub is multi-trunked or multi-stemmed (# of trunks near ground level/# of stems at breast height). 
+;Comments
+:This field will contain any additional information not found in the other fields.  For example, a comment might contain additional information about the source of the herbarium specimen or the original source of the plant that the herbarium specimen was taken from.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+[[Category:Using the online plants database]]

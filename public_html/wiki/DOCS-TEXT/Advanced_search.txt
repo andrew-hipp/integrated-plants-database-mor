@@ -1,0 +1,67 @@
+The [http://quercus.mortonarb.org/advanced_search.php Advanced search page] of The Morton Arboretum's integrated plants database is an excellent point of entry for users who want to do very detailed searches of herbarium and living collections data. If you are simply interested in searching for all plants of a given name, or all the plants in a particular living collection, you may find it easier to use the [[Simple search]]. But if you want to choose plants of only the living collections or herbarium; or if you want to search across a combination of data fields, [http://quercus.mortonarb.org/advanced_search.php Advanced search] is a great place to start.
+
+==Overview: how the advanced search page works==
+Advanced searches allow you to choose whether you search the entire collection of plant records (Search Type: Combined) or separately search the living collections or herbarium data. In general, every blank you fill in will restrict your search: thus, a search for "Hess" in collector last name with "Ulmus" in the genus will only return elm species that were by a "Hess" (typically, William Hess, the former herbarium curator). Fields are also typically wildcarded at both ends: "mo" in Collector first name will return "Morris" or "Raymond" or any other name with "mo" in it. 
+
+For the most part, each search box on the advanced search page searches in one or two fields in the database (often two, because data for the living collections and herbarium are held in different tables). Some search boxes search across several fields. We document many of these peculiarities on this page.
+
+==Collection Information==
+
+;Search type
+:This pull-down box allows you to select a search of (1) herbarium specimens on their own, (2) living collections specimens on their own, or (3) a combined search. Note that when you do a [[simple search]], you do not have the flexibility to limit your search to just one collection.
+
+;Living collection area
+:This pull-down box chooses the plants of a given living collection, for example the Arboretum's outstanding [http://www.mortonarb.org/tree-collections/geographic-groups/asian-collections-plants-from-the-far-east/china.html China collection] or [http://www.mortonarb.org/tree-collections/taxonomic-groups/elm.html Elm collection]. This is useful if you want to look at all plants within those collections. Note that if you want to find all the Arboretum's living oaks, you should not use the [http://www.mortonarb.org/tree-collections/taxonomic-groups/oak.html oak collection] pull-down, but rather search for "''Quercus''" in the scientific name. But if you want to select only [http://quercus.mortonarb.org/advanced_search.php?search_type=living&coll_area=china&plant_genus=Quercus the oaks in the China collection], you could do so by selecting "China" from the pull-down in the Living collection area box, "Living collections" from the Search type box, and typing "Quercus" in the genus or plant name keyword boxes.
+
+;Accession number
+:This is the number utilized to identify each accession in either the living collection or herbarium. In the living collection, an accession is a group of plants believed to be the same cultivar, species, or other taxon, received at a single time from a single source. In the herbarium an accession is a single herbarium sheet or, rarely, two or more herbarium sheets that hold different parts of a single plant. Herbarium accession numbers are arbitrary and continuous, ranging from 1 to more than 170,000 (as of 2011, when this was written). Living collections accession numbers take the form xxx-yy or xxx-yyyy, where the y's represent the year in which the accession was received and the x's represent the order in which accessions were received in a given year. You can use the '*' as a wildcard at the beginning or end of the string for living collections accession numbers: for example, searching for '*-2009' in accession number will return all accessions received in 2009.
+
+==Taxonomic name==
+
+The taxonomic name search boxes allow you to search through all the pieces that make up a scientific and common name. If you are interested in botanical nomenclature more generally you might be interested in [http://en.wikipedia.org/wiki/Botanical_nomenclature the Wikipedia entry for botanical nomenclature].
+
+;Plant name keyword: This is the most general field for scientific names. It searches anywhere in the scientific, common or trademark names. If you enter, for example, '''oak''', you'll find any plants that have "oak" as part of the scientific name, author names, common name, or trademark name. You will find, for example, the fern ''Asplenium platyneuron'' (L.) Oakes, because "oak" appears in the author name; the sedge ''Carex pensylvanica'' Lam., which is commonly known as "oak sedge"; and many other species. If you really want to just find oaks in the strict sense, you will do better to search by the genus (''Quercus'').
+
+;Order: The highest taxonomic level we store in our database is order. Every family in the database is (or eventually will be) assigned to an order, mostly following the [http://www.mobot.org/mobot/research/apweb/ Angiosperm Phylogeny Group] assignments. Some advanced users will find this helpful. If, for example, you want to look at all oaks and their relatives, you can search for the order Fagales. A plant order name always ends with the suffix -ales; e.g. '''Fagales''', '''Ericales''', '''Asterales''', etc.
+
+;Family: Order is a broader taxonomic category than most users need. Field guides, for example, rarely reference taxonomic orders. They almost always reference the plant family, however. In the previous example, we pointed to the oak order Fagales, which includes the [http://www.mobot.org/mobot/research/apweb/orders/fagalesweb.htm#Fagaceae Oak Family] along with the [http://www.mobot.org/mobot/research/apweb/orders/fagalesweb.htm#Betulaceae Birch Family], the [http://www.mobot.org/mobot/research/apweb/orders/fagalesweb.htm#Juglandaceae Walnut Family], and several others. If you are just interested in finding the members of the oak family, enter "Fagaceae" in the Family search box. Note that common names of families are not searched, but only the scientific names. Family names end with the suffix -aceae; e.g. '''Fagaceae''', '''Asteraceae''', '''Fabaceae''', etc.
+
+;Genus: The genus is the taxonomic rank below family. In any scientific name, the first word is the genus. Genus names are always italicized and begin with a capital letter. Note that common names of genera are not searched, but only the scientific names. Examples of genus names are: '''''Acer''''' (maples), '''''Magnolia''''' (magnolias), '''''Quercus''''' (oaks) and '''''Rhododendron''''' (rhododendrons and azaleas). 
+
+;Species epithet: The species epithet is the second word in a scientific name (note that many cultivars do not include a species epithet -- see details under Cultivar below). The species epithet is always italicized, and is always in lower case letters. Note that a species name is never made of just the species epithet, but always includes the genus plus the epithet. Examples of specific epithets are: '''''Acer''''' '''''saccharum''''' (sugar maple), '''''Magnolia''''' '''''stellata''''' (star magnolia), '''''Quercus''''' '''''alba''''' (white oak) and '''''Rhododendron''''' '''''mucronulatum''''' (Korean azalea).
+
+;Subspecies/variety/forma: Below the rank of species, many scientific names include subspecies (abbreviated "ssp." or "subsp."), varieties ("var."), or formae ("f."). Like the species epithet, these infraspecies epithets are always italicized, and are always in lower case letters. To search for these infraspecies, you should not include the designator of "ssp." or "var." or any other designator, but only the epithet. 
+
+;Cultivar: A horticultural selection that is either propagated vegetatively, or breeds true from seed is called a cultivar. The name is always enclosed in single quotes, and is not italicized like the botanical parts of a plant name. The word cultivar is derived from two words: cultivated + variety. Cultivars may be selected from a species or they may be hybrid crosses between two or more different plant species. Thus, cultivar names may include species, subspecies, variety or forma names or it may only have a genus name preceding it; e.g. ''Aesculus hippocastanum'' ''''Baumannii'''', ''Magnolia'' ''''Ivory Chalice'''', ''Rhus copallina'' var. ''latifolia'' ''''Morton''''
+
+;Common/Trade name: Plants can have many common or trade names depending on the country/countries or region(s) in which they grow. ''Amelanchier'' is known as serviceberry here in the Midwest. In the east it is known as shadblow. Wikipedia lists over 40 names for the ''Taraxacum'' our common dandelion. This database cannot be all inclusive when it comes to common names. It uses the major common names used in the Midwestern U.S.A. It also allows you to search on trademark names, which are brands rather than as common names for plants. Trademarks are distinguished by special symbols that follow the brand name; e.g. ® and ™.
+
+==Source / Collector==
+;Source Institution/Person: This field searches the source of material received by the herbarium or the living collections. As currently implemented, this field searches both the collector names and a field that holds information on institutions or individuals who may have provided material, even if they were not collectors.
+
+;Collector Last Name: This field searches across the last name of the primary plant collector and all names of any additional collectors.
+
+;Collector First Name: This field searches across the first name of the primary plant collector and all names of any additional collectors.
+
+;Project/Expedition: Many of our specimens have come from grant-funded projects or special expeditions. Where noted, this field will search them. As an example, search "Hill's oak" or "NACPEC."
+
+;Collector/Expedition #: Collections deposited in the herbarium (and often in the living collections) typically have a collector number with them, which is the collector's individual number. This is distinct from the accession number.
+
+;Collection year: These fields always search a range of years in which a plant was collected. If you want collections made in a single year, enter the same year in both "collection year" and "end of range."
+
+;Collection month/day: These fields are supposed to search a range of dates, as described for year, and only work when a year or range of years is specified. Use a three-letter abbreviation for the month. The search is not currently working correctly.
+
+;Herbarium only: This series of four check boxes allows you to select herbarium specimens that show the indicated character; e.g. Flower, Fruit, Vegetative or Buds.
+
+==Habitat==
+
+==Geopolitical==
+
+==Geopolitical coordinates==
+
+==Site / Locality==
+
+==USDA Zone==
+
+
+[[Category:Using the online plants database]]

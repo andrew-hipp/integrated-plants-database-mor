@@ -1,0 +1,43 @@
+==Example listing==
+Plants are listed alphabetically by scientific name. An explanation of a catalog entry is given in detail below.
+
+<tt>
+  ''Syringa pekinensis'' Rupr. OLEACEAE &mdash; OLIVE FAMILY
+  Common names: PEKING LILAC
+  Range: Northern China
+  USDA Hardiness Zone: 5<br /><br /> 172-26  Seed from Arnold Arboretum of Harvard University, Jamaica Plain,
+          Massachusetts wild collected by Joseph F. Rock (No. 13506) near
+          Lienhoa Shan, Kansu Province, China.
+       4  in China, central section: BB-67/44-42,54-55,63-39; CC-67/84-69
+       7  along Joy Path: II-26/area<br /><br />    Associated herbarium specimens<br />    '''89700''' &mdash; Kimberly Klock, *2731V89*, 29 Jun 1989<br />    '''155879''' &mdash; Jessica Gill, *9899V03*, 12 Aug 2003<br /><br /> 497-38  Grafts (6) from L. Spaeth, Berlin-Baumschulenweg, Federal
+          Republic of Germany.
+       2 in Godshalk Meadow, north side: O-35/40-10, 45-10<br /><br /> 480-86  Seed from Morton Arboretum, [No. 172-26] in China Collection
+          at CC-67/84-69 (T).  Original source was Arnold Arboretum, wild
+          seed collected by Joseph F. Rock (No. 13506) near Lienhoa Shan,
+          Kansu Province, China.
+       1  in Fragrance Garden, crescent bed: KK-25/area<br /><br /> 161-U  Unknown from Unknown source.
+       1 in Godshalk Meadow, north side: P-34/55-45</tt>
+
+==Scientific Name==
+
+Scientific name entries list the full scientific name of the plant followed by the author name(s), Family Name, and Family Common Name. Native range information, Common or Trade Names, and USDA Hardiness Zone information follow the botanical name.
+
+==Accession Entry==
+
+Accession entries follow the scientific name and include the accession number, type and number of propagules received, source of the accession, and collection site information for plants of wild origin. Plants are assigned a two-part accession number when initially received into the collections. The first part cited is the accession sequence number. The second part is year in which the plant was received. With rare exceptions, the age of a plant may be ascertained from the second part of the accession number. For example, the accession number 172-26 is the 172nd group of plants received in the year 1926. The letter "U" in place of the last two digits indicates plants that the year of receipt is "unknown". Their source and acquisition information cannot be determined with accuracy, but the Arboretum wishes to maintain information about them in the records system.
+
+===Source information===
+Source information follows the accession number: how the plant was received (seed, graft, plant, etc.), the number received enclosed in parentheses, the name of the source, and any additional source information that pertains to the accession. A number enclosed in brackets e.g. [No. 172-26], is the source accession number from which the new accession was propagated, and may include the collection and grid location of the parent accession. The symbol (T) indicates that the parent of the accession was determined to be true-to-name by a taxonomist. The statement, "Original source was", gives the very first source from which the parent material was obtained by the Arboretum. Wild collected information, if available, follows the source information. It may include the name of the collector, the number assigned by the collector to the material in parentheses, e.g. (No. 13506); and site information. 
+
+===Plant Location Entry===
+Plant location entries list the number of plants in a collection, the name of the collection and collection subarea(s), and the location(s) at which plants are growing. Specific plant locations consist of two parts: (1) the grid square and (2) the coordinates of the plant within the grid square. The Arboretum grounds are divided into 100 x 100 foot grid squares, which are used as one would use a grid on a standard highway map to locate a city or town. Letters indicate grid lines from south to north, while numbers indicate grid lines from west to east. A grid square takes its name from the grid lines that intersect at its southwest corner. Coordinates are two numbers that designate the number of feet north and east of the southwest corner of a grid square. BB-67/44-22 is an example of a plant location using the Arboretum's grid system. The "BB-67" portion of the location entry refers to the point formed by the intersection of the lines designated "BB" and "67", and also applies to the 100 x 100 foot grid square which lies north and east of that intersection. The "44-42" portion of the entry are the actual coordinates of the plant within the "BB-67" grid square: 44 feet north and 42 feet east of the "BB-67" point. Thus, BB-67/44-42 refers to a plant growing 44 feet north and 42 feet east of the intersection of the lines designated "BB" and "67". Many plants in the Arboretum collections have had their grid coordinates determined. Those plants whose grid coordinates have not yet been determined have catalog entries that list only the 100 x 100 foot area within which the plant may be found, e.g. BB-67/area.
+
+Note all plant locations indicated in '''red bold-faced text''' are hot-linked to the [http://www.plantconservation.us/map.phtml interactive collections map], providing an easy way to locate a plant on the grounds.
+
+==Taxonomic Authentication==
+When a plant location is underlined, the specimen has been authenticated as true-to-name by one of our taxonomists. Authenticated plants either have the symbol "S" punched on the collections label or have the letter "T" printed between the accession number and the grid location. Collection labels may be found on the south side of the plant. Nursery Source Listing For assistance in locating nursery sources for plants listed in this catalog, please contact the Sterling Morton Library at The Morton Arboretum. The library maintains an extensive file of retail and wholesale nursery catalogs.
+
+==Associated herbarium specimens==
+Many herbarium specimens have been collected from living collections plants. When there are any such specimens, their '''red bold-faced''' accession numbers link to the associated herbarium collection(s).
+
+[[Category:Using the online plants database]]
