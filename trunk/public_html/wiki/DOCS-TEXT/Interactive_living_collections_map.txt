@@ -1,0 +1,7 @@
+When you click on the link after "map" on the search results page, you will see your selected specimen displayed as a yellow point, and all other Arboretum specimens represented as green points.  To zoom in for a closer look at your specimen's location, change the '''zoom/recenter control''' to the left of the map to a zoom in power (higher zoom powers zoom in or out more quickly), and click on the map; '''the click point you choose will be the center''' of the zoomed image.  
+
+When you zoom in, the Arboretum's grid system will appear.  The reference map above the zoom/recenter control uses a red box to help you keep track of the part of the Arboretum currently displayed at your zoom level.
+
+To move around the map without zooming in or out, change the zoom/recenter control to the left of the map to "recenter", and click anywhere on the map to recenter at that point.  To zoom out, choose one of the zoom out powers and click on the map to set the center point for the zoomed out image.
+
+The link to the "collections map main page" below the map will take you to the Arboretum's main interactive map, where you can perform other searches, turn map layers on and off, print maps, view photos of some species, and even download tables in excel format.  Please see the "help" feature on the main map for more information.

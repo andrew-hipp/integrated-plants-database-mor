@@ -1,0 +1,34 @@
+The simple search is always visible to you in the Integrated Plants Database, no matter where you are in the system. The simple search is the easiest point of entry for gaining information about plant specimen data at the Arboretum. As currently coded, it only searches in living collections data, because many of our users are primarily interested in locating plants on the grounds or gaining information about those plants. If you want to find herbarium data, you will have to utilize an [[Advanced search]].
+
+In this article, square brackets [] are used to indicate a search query.  For example, [Quercus rubra] is a single search query.
+
+==Plant Name==
+
+The plant name search function will locate either scientific plant names or common names stored within SearchMOR.  
+
+===Searching by Scientific Name===
+
+When searching by scientific name, you may enter the name of a genus alone or a binomial (a genus and species combination).  If you are searching for a specific variety, subspecies, forma or cultivar you will need to indicate this classification.  That is, a search for [Lonicera coerulea dependens] will yield no results, while [Lonicera coerulea var. dependens] will successfully locate all records of this taxon.  However, a simple binomial search will return all varieties, subspecies, forma or cultivar associated with that name.  
+
+Some tips in searching:
+*While spelling is important in getting results, the search function is case insensitive.
+*All queries longer than 2 characters will yield a result of all plant names that contain those character combinations somewhere within the scientific name.
+*While not necessary, you may search scientific names including their publishing authors in the search field.
+*You cannot search by plant family name in this field.
+
+===Searching by Common Name===
+
+When searching by common name, it is important to keep in mind that while the SearchMOR database has extensive lists of common names associated with the plant collection, these lists do not include all possible common names.  These names for plants often vary from language to language and region to region.  Further complicating the issue, two unrelated plants may have the same common name.  That said, an attempt to search by common name or trade name may still be fruitful.
+
+Some tips in searching: 
+*Spelling is important.  Often common names are hyphenated, and this too is important in order to get results.  eg. [Witch hazel] will get no results, because [Witch-hazel] is the correct spelling of the word.
+*Keep your search general to increase the likelihood of finding a match for the common name that you're looking for.  For instance, use [Honeysuckle] rather than [Chinese Bush Honeysuckle].
+*Sometimes results will include parts of the common name you entered. Thus, a search for [Honeysuckle] may generate results that include Honey-locust or Honeyshade Green Ash.
+
+==Living Collection==
+
+The Living Collection at the Morton Arboretum consists of many areas that are generally named according to the populations of plants growing there.  In the Living Collection search field, a drop down list of these areas is provided to help narrow your search.  This may be helpful if you want to see whether a certain collection area contains the specific plant you are looking for and how many can be found at that location.  You may also leave the other fields blank and select an area in the Living Collection drop-down tool, and a list of all the Living Collections in that area will be generated.  To find associated herbarium specimens that were originally collected from the area searched will require the use of the advanced search function.
+
+==Collection Site==
+
+The Collection Site search field will return any herbarium specimens that have been collected from a site you enter.  Site information can include habitat(eg. swamp, waterfall or cliff) or locality (eg. a grid number location or Living Collection area).  Herbarium specimens include not only plants collected from the Morton Arboretum grounds, but also spontaneously occurring plants from the 24 counties of the Chicago Region.  For this reason, you can also include in this search field county and even city information.  For example, a search for plant name [Salix] and collection site [Naperville] will yield a result of all collected herbarium specimens documenting the Salix species growing in the city of Naperville.

@@ -1,0 +1,91 @@
+This page is a running list of possible topics for this wiki, by category. This could be used as a de facto table of contents, more readable than the auto-generated tables of contents for each category. 
+
+===Category:Using the online plants database===
+*[[Reading a living collections record]] - drafted, but needs work -- '''EH and KK'''
+*[[Reading_an_herbarium_record|Reading an herbarium record]] -- '''MH'''
+*[[Simple search|Searching for plants: how to use Simple Search box]] -- '''BB'''
+*[[Advanced search|Searching for plants: how to use the Advanced Search page]] -- '''AH and EH'''
+*What is the difference between an accession and a plant?
+*[[Downloading data|Downloading data, and using downloaded data]] -- '''AH and EH'''
+*Case study: mapping wild specimens in Google maps using downloaded data
+*Case study: using herbarium data to study flowering dates
+*Case study: planning a trip to the living collections with Uncle Julius, who loves old trees
+*How herbarium and living collections data can be used together
+*How to contribute photographs of live plants
+*Overview of the Unidata database that underlies the online plants database
+*[[Interactive living collections map|Interactive mapping]] -- '''JM'''
+*For users: Teachers, land managers, students, home gardeners
+
+===Category:The Arboretum's plant collections===
+*Reading an herbarium label
+*Reading a living collections label
+*Where do herbarium specimens come from?
+*Where do plants in the living collections come from?
+*How can I make my own herbarium?
+*What are our oldest specimens?
+*Why do we collect herbarium specimens from the living collections?
+*Highlighting the 4 NAPCC collections
+*Famous plant collectors represented in the living and herbarium collections
+
+===Category:Nomenclature===
+*What is the difference between a cultivar and a species? -- this could also deal with subspecies, varieties, formae etc.
+*Where do plant names come from?
+*What is the difference between a common name and a trademark name?
+*How does the Arboretum decide what plant names to use?
+*Good sources of information on plant names (including links to nomenclatural authorities and sites)
+*Plant patents
+*ICBN
+*International Code of Nomenclature for Cultivated Plants 
+
+===Category:Admin discussion===
+*[[Possible topics]] - in the works
+*Features wish list (a wish list of features for the online database)
+*Known issues
+*Nomenclature:Families and genera done and to do
+*Nomenclature:Outstanding issues in completed groups
+*Nomenclature:Pages on nomenclatural details for complicated groups and issues (this could prove handy b/c the wiki is searchable, and we could easily come back to issues years hence -- and we probably will, if ''Acer'' is any indication...)
+
+===Possible names===
+searchMOR settled on at 22 March 2011 meeting
+
+[[Category:Admin discussion]]
+
+== Celebrity Chef Chris Nirschel Cooks for the Homeless ==
+
+Cause Celeb highlights a celebritys work on behalf of a specific cause. This week, Chris Nirschel shares with us, via email interview, his work with The Food Bank for New York City.After 28 years, The Food Bank for New York has become the citys major hunger relief organization and one of the largest food banks in the country. 
+
+ [[http://goodvillenews.com/Celebrity-Chef-Chris-Nirschel-Cooks-for-the-Homeless-3xkuIL.html Celebrity Chef Chris Nirschel Cooks for the Homeless]]
+
+[[http://goodvillenews.com/wk.html GoodvilleNews.com - good, positive news, inspirational stories, articles]]
+
+== Googles Jolly Good Fellow on Inner Peace ==
+
+Chade-Meng Tan (widely known as Meng) was among the earliest engineers to be hired at Google. When Google allowed engineers to spend 20% of their time pursuing their passion, Meng decided to spend his time on a cause dear to his heart: Launching a conspiracy to bring about world peace. Meng believes that world peace can be achieved -- but only if people cultivate the conditions for inner peace within themselves. 
+
+ [[http://goodvillenews.com/Googles-Jolly-Good-Fellow-on-Inner-Peace-xfIvQS.html Googles Jolly Good Fellow on Inner Peace]]
+
+[[http://goodvillenews.com/wk.html GoodvilleNews.com - good, positive news, inspirational stories, articles]]
+
+== 6 Steps Towards Living a Life Free of Fear and Full of Hope ==
+
+There are two basic motivating forces: fear and love. When we are afraid, we pull back from life. When we are in love, we open to all that life has to offer with passion, excitement, and acceptance. We need to learn to love ourselves first, in all our glory and our imperfections. If we cannot love ourselves, we cannot fully open our ability to love others or our potential to create. Evolution and all hopes for a better world rest in the fearlessness and open-hearted vision of people who embrace life. ~ John Lennon
+
+ [[http://goodvillenews.com/6-Steps-Towards-Living-a-Life-Free-of-Fear-and-Full-of-Hope-dnAp.html 6 Steps Towards Living a Life Free of Fear and Full of Hope]]
+
+[[http://goodvillenews.com/wk.html GoodvilleNews.com - good, positive news, inspirational stories, articles]]
+
+== 15 Things You Should Give Up To Be Happy ==
+
+Here is a list of 15 things which, if you give up on them, will make your life a lot easier and much, much happier. We hold on to so many things that cause us a great deal of pain, stress and suffering and instead of letting them all go, instead of allowing ourselves to be stress free and happy we cling on to them. Not anymore. Starting today we will give up on all those things that no longer serve us, and we will embrace change. Ready? Here we go:
+
+ [[http://goodvillenews.com/15-Things-You-Should-Give-Up-To-Be-Happy-r1EA1L.html 15 Things You Should Give Up To Be Happy]]
+
+[[http://goodvillenews.com/wk.html GoodvilleNews.com - good, positive news, inspirational stories, articles]]
+
+== 7 Essential Books on Optimism ==
+
+Every once in a while, we all get burned out. Sometimes, charred. And while a healthy dose of cynicism and skepticism may help us get by, its in those times that we need nothing more than to embrace lifes promise of positivity with open arms. Here are seven wonderful books that help do just that with an arsenal ranging from the light visceral stimulation of optimistic design to the serious neuroscience findings about our proclivity for the positive.
+
+ [[http://goodvillenews.com/7-Essential-Books-on-Optimism-6pgcLt.html 7 Essential Books on Optimism]]
+
+[[http://goodvillenews.com/wk.html GoodvilleNews.com - good, positive news, inspirational stories, articles]]
