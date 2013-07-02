@@ -70,11 +70,11 @@ function sciname_long($resultData, $sciname, $displayImage = false, $linkToLCDet
 	if ($linkToLCDetails) {
 		echo '<a href="' . getRootUrl() . '/details_living_coll.php?sciname=' . urlencode($sciname['scientific_name_id']) . '">';
 	}
-	echo '<b>';
+	echo '<b><i>';
 	switch ($sciname['genus_designator']) {
 		case 'h':
 		case 'x':
-			echo 'x';
+			echo '</i>x<i>';
 			
 		default:
 			echo ' <b>' . sciname_null($sciname, 'genus_name') . '</b> ';
@@ -86,7 +86,7 @@ function sciname_long($resultData, $sciname, $displayImage = false, $linkToLCDet
 			break;
 			
 		case 'x':
-			echo 'x';
+			echo '</i>x<i>';
 			break;
 			
 		default:
@@ -102,15 +102,16 @@ function sciname_long($resultData, $sciname, $displayImage = false, $linkToLCDet
 		default:
 			break;
 	}
+?></i><?php
 	if (!isNull($sciname['subspecies_name'])) {
-		echo ' ssp. <b>' . $sciname['subspecies_name'] . ' </b>';
+		echo ' ssp. <b><i>' . $sciname['subspecies_name'] . ' </i></b>';
 	}
 	echo ' ';
 	if (!isNull($sciname['variety_name'])) {
-		echo 'var. <b>' . $sciname['variety_name'] . ' </b> ';
+		echo 'var. <b><i>' . $sciname['variety_name'] . ' </i></b> ';
 	}
 	if (!isNull($sciname['forma_name'])) {
-		echo 'f. <b>' . $sciname['forma_name'] . ' </b> ';
+		echo 'f. <b><i>' . $sciname['forma_name'] . ' </i></b> ';
 	}
 	if (!isNull($sciname['cultivar_name'])) {
 		echo '<b>\'' . $sciname['cultivar_name'] . '\' </b>';
@@ -128,9 +129,37 @@ function sciname_long($resultData, $sciname, $displayImage = false, $linkToLCDet
 		echo '<br />Plant patent: ' . $sciname['plant_patent_no'] . ' ';
 	}
 	if (!isNull($sciname['family_name']) && !isNull($sciname['family_common_name'])) {
-		echo $sciname['family_name'] . ' &mdash; ' . $sciname['family_common_name'] . ' FAMILY';
+		echo $sciname['family_name'] . ' &mdash; ' . $sciname['family_common_name'] . ' FAMILY&nbsp;';
 	}
-	echo '<br />';
+	
+	//begin code for icons and links JM
+	$searchgenus = $sciname['genus_name'];
+	
+	if ($sciname['species_designator'] == "x"){//for building search link to MOBOT search
+			$searchgenusm = $sciname['genus_name'].' x';
+		}else
+		{
+		$searchgenusm = $sciname['genus_name'];
+	}
+		
+	if (!isNull($sciname['cultivar_name'])){//for building search link to Plant Finder
+		$searchspecies = $sciname['species_name']." " .$sciname['cultivar_name'];
+		}else
+		{
+		$searchspecies = $sciname['species_name'];
+	}
+	
+	if (!isNull($sciname['subspecies_name'])){//for building search link to Plant Finder
+		$searchspecies = $searchspecies. " ssp. " .$sciname['subspecies_name'];
+	}
+		
+	if (!isNull($sciname['author_name'])) {//for building search string link to PLANT LIST only
+		$searchspeciespl = $searchspecies. " " .$sciname['author_name'];
+		}else
+		{
+		$searchspeciespl = $searchspecies;
+	}
+	
 	if (!isNull($sciname['trademark'])) {
 		echo 'Trademark Names: ';
 		$lastTwoChars = substr($sciname['trademark'], strlen($sciname['trademark']) - 3, 3); 
@@ -156,11 +185,30 @@ function sciname_long($resultData, $sciname, $displayImage = false, $linkToLCDet
 		}
 		echo  '. ';
 	}
-	echo '</b>';  // end bold
+	echo '<br></b>';  // end bold
+	
 	if ($displayImage && isset($sciname['image_thumb']) && isset($sciname['image_large'])) {
-		echo '</td><td width="10px">';
 		// Sciname images are bring up the image browser for this sciname ID
+		echo '<span>';
 		echo '<a href="' . getRootUrl() . '/image_browser.php?sciname=' . urlencode($sciname['scientific_name_id']) . '"><img src="' . getRootUrl() . '/images/AAA-IMAGE-ICON-cam.gif" /></a>';
+		if (!isNull($searchspecies)){//don't build these links if search doesn't include a species name
+			echo '<a href="http://www.missouribotanicalgarden.org/gardens-gardening/your-garden/plant-finder/plantfinder-results/displayview/profile.aspx?basicsearch='.$searchgenusm.'%20'.$searchspecies.'"TARGET=blank><img src="' . getRootUrl() . '/images/mobot.gif" title="Search in Missouri Botanical Garden Plant Finder"/></a>';  //mobot link
+			echo '<a href="http://www.google.com/search?tbm=isch&q='.$searchgenus.'%20'.$searchspecies.'&biw=1440&bih=758&sei=2Kj9UNebMMW5qQHLiICACg"TARGET=blank><img src="' . getRootUrl() . '/images/google-icon.png" title="Search Google images"/></a>&nbsp';  //google images link
+			echo '<a href = "http://www.theplantlist.org/tpl/search?q='.$searchgenus.'%20'.$searchspeciespl.'" TARGET= blank><img src ="'  . getRootUrl() . '/images/tpl.png" title="Search in The Plant List"/></a>';//Kew
+		}
+		//echo '<a href="http://quercus.mortonarb.org/image_browser.php?sciname=' . urlencode($sciname['scientific_name_id']) . '"><img src="' . getRootUrl() . '/images/AAA-IMAGE-ICON-cam.gif" /></a>';
+		echo '</span>';
+		}else{
+		echo '<span>';
+		if (!isNull($searchspecies)){//don't build these links if search doesn't include a species name
+			echo '<a href="http://www.missouribotanicalgarden.org/gardens-gardening/your-garden/plant-finder/plantfinder-results/displayview/profile.aspx?basicsearch='.$searchgenus.'%20'.$searchspecies.'"TARGET=blank><img src="' . getRootUrl() . '/images/mobot.gif" title="Search in Missouri Botanical Garden Plant Finder"/></a>';  //mobot link
+			echo '<a href="http://www.google.com/search?tbm=isch&q='.$searchgenus.'%20'.$searchspecies.'&biw=1440&bih=758&sei=2Kj9UNebMMW5qQHLiICACg"TARGET=blank><img src="' . getRootUrl() . '/images/google-icon.png" title="Search Google images"/></a>&nbsp';  //google images link
+			echo '<a href = "http://www.theplantlist.org/tpl/search?q='.$searchgenus.'%20'.$searchspecies.'" TARGET= blank><img src ="'  . getRootUrl() . '/images/tpl.png" title="Search in The Plant List"/></a>';//Kew
+		}
+		echo '</span>';
+	}
+	
+	if ($displayImage && isset($sciname['image_thumb']) && isset($sciname['image_large'])) {
 		echo '</td></tr></table>';
 	}	
 }
