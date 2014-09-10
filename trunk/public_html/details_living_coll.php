@@ -165,7 +165,7 @@ if ((!isset($_REQUEST['sciname']) && isset($_REQUEST['id']) && ($_REQUEST['id'] 
 							}
 							$resultData['otherItems'][$dataIdx - 1]['grid'] .= '</a> ';
 							$resultData['otherItems'][$dataIdx - 1]['grid'] .= $gmapsLink;
-							$resultData['otherItems'][$dataIdx - 1]['grid'] .= ' ' . $gmapsgridLink;
+							//$resultData['otherItems'][$dataIdx - 1]['grid'] .= ' ' . $gmapsgridLink;
 						} else {
 							$resultData['otherItems'][$dataIdx]['location'] = $collName;
 							$resultData['otherItems'][$dataIdx]['count'] = $noGrid;
@@ -190,7 +190,7 @@ if ((!isset($_REQUEST['sciname']) && isset($_REQUEST['id']) && ($_REQUEST['id'] 
 								}
 								$resultData['otherItems'][$dataIdx]['grid'] .= '</a>';
 								$resultData['otherItems'][$dataIdx]['grid'] .= ' ' . $gmapsLink;
-								$resultData['otherItems'][$dataIdx]['grid'] .= ' ' . $gmapsgridLink;
+								//$resultData['otherItems'][$dataIdx]['grid'] .= ' ' . $gmapsgridLink;
 								$resultData['otherItems'][$dataIdx]['subarea1'] = $subarea1;
 								$resultData['otherItems'][$dataIdx]['subarea2'] = $subarea2;
 								$resultData['otherItems'][$dataIdx]['subarea3'] = $subarea3;
